@@ -53,19 +53,19 @@ The system aims to improve resume quality, increase ATS compatibility, streamlin
 # 🏗️ Project Architecture
 
 ```text
-Student
-      │
-      ▼
-Frontend (React + Vite)
-      │
-      ▼
-Backend (Node.js + Express)
-      │
-      ▼
-MongoDB
-      │
-      ▼
-AI Services
+Student / Recruiter
+        │
+        ▼
+Frontend (React + Vite + Tailwind CSS + Lucide)
+        │ (JWT Bearer Auth via Axios)
+        ▼
+Backend API (FastAPI + Python 3.11)
+        ├── PyMuPDF & spaCy (PDF Section/Entity Extraction)
+        ├── scikit-learn & TF-IDF Vectorizer (Resume-Job Matching ML Engine)
+        └── Cloudinary (Encrypted PDF Storage)
+        │
+        ▼
+Database (MongoDB Motor Async Driver)
 ```
 
 ---
@@ -74,27 +74,29 @@ AI Services
 
 ## Frontend
 
-- React
+- React 18
 - Vite
 - Tailwind CSS
 - Framer Motion
-- React Router
-- Zustand
+- React Router DOM
+- Zustand (Global State Management)
+- Lucide React & React Hot Toast
 
-## Backend
+## Backend & APIs
 
-- Node.js
-- Express.js
+- Python 3.11+
+- FastAPI (Asynchronous Web Framework)
+- Uvicorn (ASGI Server)
+- Motor & PyMongo (MongoDB Async ODM)
+- Cloudinary Python SDK (Resume Storage)
+- Python-Jose & Passlib / Bcrypt (JWT Security)
 
-## Database
+## AI, ML & NLP
 
-- MongoDB
-
-## AI & NLP (Planned)
-
-- Google Gemini API
-- spaCy
-- Sentence Transformers
+- scikit-learn (Resume-Job TF-IDF Match Classifier)
+- spaCy (`en_core_web_sm` NLP pipeline)
+- PyMuPDF (`fitz` for structured PDF parsing)
+- Vector Index & Semantic Keyword Analyzers
 
 ---
 
